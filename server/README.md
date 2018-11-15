@@ -8,7 +8,6 @@ Endpoint   |   Method   |   Description
 /pricechart/company/:id   |   GET   |   Retrieve all company information
 /pricechart/company/:id   |   PATCH   |   Update company info
 /pricechart/company/:id   |   DELETE   |   Delete company info
-
 /pricechart/prices/:id/:day   |   GET   |   Retrieve ALL company prices for the specfic day
 /pricechart/prices/:id/:day time   |    GET   |   Retrieve company specific price at time of the day
 /pricechart/prices/:id/:day time   |    POST   |   Add a new price
