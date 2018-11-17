@@ -27,3 +27,6 @@ build/
 bundle.js
 config.js
 sample.css
+pricesOneDay.csv
+pricesOneHour.csv
+company.csv
