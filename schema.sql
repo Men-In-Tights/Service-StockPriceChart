@@ -13,7 +13,22 @@ CREATE TABLE pricedata.prices (
     priceid SERIAL PRIMARY KEY, 
     price numeric, 
     datetime timestamp, 
-    company_Id integer, 
+    company_id integer, 
     FOREIGN KEY (company_Id) 
     REFERENCES pricedata.company (companyid) 
 );
+
+CREATE INDEX findcompanyinfo
+    ON pricedata.company USING btree
+    (name COLLATE pg_catalog."default", owner, rating)
+    TABLESPACE pg_default;
+
+CREATE INDEX findcompanybyname
+    ON pricedata.company USING btree
+    (name COLLATE pg_catalog."default" varchar_pattern_ops)
+    TABLESPACE pg_default;
+
+CREATE INDEX finddayprices
+    ON pricedata.prices USING btree
+    (company_id)
+    TABLESPACE pg_default;

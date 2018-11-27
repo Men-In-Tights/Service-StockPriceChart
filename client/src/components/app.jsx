@@ -13,16 +13,11 @@ class App extends React.Component {
       id: 0,
       view: '1d',
       priceData: [{
-        symbol: '',
-        name: '',
-        owner: 0,
         price: 0,
-        rating: 0,
       }],
     };
 
     this.handleGetDay = this.handleGetDay.bind(this);
-    this.handleGetWeek = this.handleGetWeek.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.changeView = this.changeView.bind(this);
     this.handleRandom = this.handleRandom.bind(this);
@@ -42,26 +37,19 @@ class App extends React.Component {
   }
 
   handleGetDay(id, view) {
-    fetch(`/api/symbol/${id}/day`)
+    fetch(`/pricechart/${id}/day`)
       .then(response => response.json())
-      .then((priceData) => {
-        this.name = priceData[id].name;
-        this.rating = priceData[id].rating;
-        this.owner = priceData[id].owner;
-        this.setState({ priceData, view });
+      .then((data) => {
+        this.name = data.company[0].name;
+        this.rating = data.company[0].rating;
+        this.owner = data.company[0].owner;
+        this.setState({ priceData: data.prices });
       })
       .catch(error => console.log(error));
   }
 
-  handleGetWeek(id, view) {
-    fetch(`/api/symbol/${id}/week`)
-      .then(response => response.json())
-      .then(priceData => this.setState({ priceData, view }))
-      .catch(error => console.log(error));
-  }
-
   handlePriceChange(price) {
-    price = `$${price}`
+    price = `$${price}`;
     document.getElementById(styles.mainPrice).innerHTML = price;
   }
 
@@ -148,3 +136,12 @@ class App extends React.Component {
 }
 
 export default App;
+
+// this.handleGetWeek = this.handleGetWeek.bind(this);
+
+// handleGetWeek(id, view) {
+//   fetch(`/api/symbol/${id}/week`)
+//     .then(response => response.json())
+//     .then(priceData => this.setState({ priceData, view }))
+//     .catch(error => console.log(error));
+  // }

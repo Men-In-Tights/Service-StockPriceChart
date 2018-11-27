@@ -20,7 +20,7 @@ const companyGenerator = (index) => {
   stockStream.end();
 };
 
-const stockStream2 = fs.createWriteStream(path.join(__dirname, 'prices.csv'));
+const stockStream2 = fs.createWriteStream(path.join(__dirname, 'pricesOneDay.csv'));
 const priceGenerator = (index) => {
   const year = 2018;
   const month = 10;
@@ -55,7 +55,7 @@ gen.then(() => {
     }
   });
 }).then(() => {
-  const query = `copy pricedata.prices(price, datetime, company_Id) from 'path.join(__dirname, prices.csv)' delimiters ',' CSV`;
+  const query = `copy pricedata.prices(price, datetime, company_Id) from 'path.join(__dirname, pricesOneDay.csv)' delimiters ',' CSV`;
   Client.query(query, (error) => {
     if (error) {
       console.error(error);

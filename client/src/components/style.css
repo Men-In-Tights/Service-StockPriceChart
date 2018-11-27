@@ -1,5 +1,8 @@
+body {
+  background: #1B1B1C;
+  color: white;
+}
 .container {
-  background: white;
   font-size: 13px;
   font-weight: 300;
   width: 100%;
@@ -14,11 +17,12 @@
 }
 
 .name h1 {
+  font-size: 36px;
   margin: 0;
 }
 
 a.tag:link, a.tag:visited, a.tag:active {
-  color: #171718;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -26,9 +30,9 @@ a.tag:hover {
   display: grid;
   justify-items: start;
   border-radius: 17px;
-  background-color: #171718;
-  color: white;
-  fill: white;
+  background-color: #fff;
+  color: #171718;
+  fill: #171718;
 }
 
 a.tag {
@@ -41,23 +45,29 @@ a.tag {
   border-radius: 17px;
   height: 70%;
   width: 94%;
-  background-color: #f4f4f5;
+  background-color: #0e0d0d;
 }
 
 .tagIcon {
   display: block;
   position: relative;
-  top: 7px;
+  fill: white;
+  top: 10px;
   left: 10px;
   width: 12px;
+}
+
+a.tag:hover .tagIcon {
+  fill: #171718;
 }
 
 .innerTag {
   display: block;
   position: relative;
-  top: -17px;
+  top: -14px;
   left: 27px;
   width: 12px;
+  font-weight: bold;
 }
 
 a.tag .tagTooltip {
@@ -73,7 +83,7 @@ a.tag .tagTooltip {
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  top: 50px;
+  top: 58px;
   margin-left: -60px;
   opacity: 0;
   transition: opacity .25s;
@@ -101,20 +111,20 @@ a.tag:hover .tagTooltip {
 
 .circle {
   visibility: hidden;
-  stroke: #FFFFFF;
+  stroke: #171718;
   fill: #cea774;
 }
 
 .tooltip {
   visibility: hidden;
-  font-size: 8px;
+  font-size: 12px;
   fill: #8c8c8e;
   font-weight: bold;
 }
 
 .timeLine {
   visibility: hidden;
-  stroke: #cbcbcd;
+  stroke: #8c8c8e;
   stroke-width: 1;
 }
 
@@ -139,7 +149,7 @@ a.tag:hover .tagTooltip {
   grid-template-columns: repeat(6, 20px);
   justify-items: center;
   column-gap: 10px;
-  border-bottom: 1px solid #f4f4f5;
+  border-bottom: 1px solid #0e0d0d;
   padding-bottom: 1px;
 }
 
@@ -156,7 +166,7 @@ a.tag:hover .tagTooltip {
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
-  color: #171718;
+  color: #fff;
 }
 
 .navUnselected:hover{

@@ -33,7 +33,7 @@ const Chart = (props) => {
     circleObj.price = ele.price;
     coordinates.push(circleObj);
     renderThis += `${xAxisStr},${yAxis.toString()} `;
-  })
+  });
 
   function handleMouseEnter(e) {
     const coorX = e.target.getAttribute('x');

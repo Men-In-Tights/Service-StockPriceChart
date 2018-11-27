@@ -5,22 +5,22 @@
 
 // module.exports = db;
 
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
-  user: 'sysadmin',
-  host: '127.0.0.1',
-  database: 'pricedata',
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
   password: '',
   port: '5432',
 });
 
-client.connect((err) => {
+pool.connect((err) => {
   if (err) {
     console.error('Connection Error', err);
   } else {
-    console.log('Connected');
+    console.log('Connected to pg database');
   }
 });
 
-module.exports = client;
+module.exports = pool;
