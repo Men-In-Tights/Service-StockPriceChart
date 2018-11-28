@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const morgan = require('morgan');
 
 const db = require('../database/index.js');
 
@@ -10,6 +11,7 @@ const app = express();
 const PORT = process.env.port || 3001;
 
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
