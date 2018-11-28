@@ -55,7 +55,7 @@ gen.then(() => {
     }
   });
 }).then(() => {
-  const query = `copy pricedata.prices(price, datetime, company_Id) from 'path.join(__dirname, pricesOneDay.csv)' delimiters ',' CSV`;
+  const query = `copy pricedata.prices(price, datetime, company_id) from 'path.join(__dirname, pricesOneDay.csv)' delimiters ',' CSV`;
   Client.query(query, (error) => {
     if (error) {
       console.error(error);
