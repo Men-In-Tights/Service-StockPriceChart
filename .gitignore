@@ -30,6 +30,7 @@ sample.css
 pricesOneDay.csv
 pricesOneHour.csv
 company.csv
+newrelic.js
 
 # Super Secret Files
 .env
